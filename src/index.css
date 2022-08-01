@@ -34,6 +34,19 @@ code {
   padding-left: 1cm;
   margin-bottom: 0.5cm;
 }
+
+.onetask{
+  width: 100%;
+  height: 100%;
+  margin-top: 0.5cm;
+  margin-left: 1cm;
+  padding-bottom: 0.5cm;
+  padding-left: 1cm;
+  margin-bottom: 0.5cm;
+  font-size: 20px;
+}
+
+
 .namesite{
   width: 301px;
   height: 78px;
@@ -135,3 +148,26 @@ button {
     border-radius: 50%;
 
   }
+.randomtask{
+  height: 100%;
+  margin-top: 0.5cm;
+  margin-left: 1cm;
+  padding-bottom: 0.5cm;
+  padding-left: 1cm;
+  margin-bottom: 0.5cm;
+  font-size: 17px;
+}
+
+.randomtaskheader{
+  margin-top: 0.5cm;
+  margin-left: 1cm;
+  padding-bottom: 0.5cm;
+  padding-left: 1cm;
+  margin-bottom: 0.5cm;
+}
+
+.dayprint{
+  font-size: 20px;
+  font-style: italic;
+  color:grey;
+}

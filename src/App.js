@@ -7,9 +7,11 @@ import List from "./components/List";
 import Space from "./components/Space";
 import Tasks from "./components/Tasks";
 import Wishlist from "./components/Wishlist";
+import MakeChange from "./components/MakeChange";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 
 
 export default function App() {
@@ -17,13 +19,14 @@ export default function App() {
 
 
   useEffect(
-    () => {fetch('http://127.0.0.1:8000/getlist/')
+    () => {fetch('http://127.0.0.1:8000/api/plants')
     .then (response => response.json())
     .then (response => setPlants(response))
   }, 
     []
   );
 
+  
   return (
     <Router>
     <div class="container-fluid gx-0">
@@ -41,6 +44,8 @@ export default function App() {
       <Route path="/dead" element={<Dead />} />
       <Route path="/form" element={<Form />} />
       <Route path="/space" element={<Space />} />
+      <Route path="/makechange" element={<MakeChange 
+      plants={plants}/>} />
     </Routes>
     </div>
     </div>

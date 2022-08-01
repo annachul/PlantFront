@@ -11,7 +11,7 @@ function List(props) {
   
   return (
     <section>
-      <h1 className="headerforpage">🪴  Список растений</h1>
+      <h1 className="headerforpage">🪴  Plant list</h1>
       <div>
       {onePlant}
       </div>

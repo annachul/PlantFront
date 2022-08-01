@@ -1,6 +1,6 @@
 import React from "react";
 
-function Form() {
+function MakeChange(props) {
 
   const [formData, setFormData] = React.useState(
     {
@@ -40,11 +40,23 @@ function handleChange(event) {
     })
 }
 
+function handleSelect(event) {
+    const {name, value} = event.target
+     fetch('http://127.0.0.1:8000/api/plants/'+value)
+        .then (response => response.json())
+        .then (response => setFormData(response[0]))
+    }
+    
+  
+
+const oneplant=props.plants.map((plant) => <option value={plant.id}>{plant.plantname}</option>)
+
 
 function handleSubmit(event) {
   event.preventDefault()
 
   var postData = {
+  id:formData.id,
   plantname : formData.plantname,
   ligth : formData.ligth,
   spot:formData.spot,
@@ -67,9 +79,9 @@ function handleSubmit(event) {
   status:formData.status,
   pot: formData.pot,
   hard: formData.hard}
-  alert("You have added a new plant!");
-  fetch('http://127.0.0.1:8000/api/plants', {
-    method: 'POST',
+  alert("You have changed a plant!");
+  fetch('http://127.0.0.1:8000/api/plants/'+formData.id, {
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
@@ -84,7 +96,7 @@ function handleSubmit(event) {
   return (
           <section>
             <h1 className="headerforpage">
-            🏡  Form for new plants
+            🖌️  Change Plant
             </h1>
             <div className="formdiv">
               <form onSubmit={handleSubmit}>
@@ -93,15 +105,12 @@ function handleSubmit(event) {
                 <div class="col">
                   <label for="plantname" class="col-form-label"> Name: </label>
                 </div>
-              <div class="col">
-                <input 
-                type="text" 
-                id="plantname" 
-                class="form-control"
-                onChange={handleChange}
-                name="plantname"
-                value={formData.plantname}/>
-              </div >
+                <div class="col">
+              <select class="form-select" aria-label="plantname" id="plantname" onChange={handleSelect} name='plantname'>
+              <option value="">Choose plant</option>
+              {oneplant}
+              </select>
+                </div>
               <div class="col">
                   <label for="spot" class="col-form-label">Spot: </label>
                 </div>
@@ -204,7 +213,7 @@ function handleSubmit(event) {
 
               <div class="row justify-content-around my-2 py-2 mx-1">
                 <div class="col">
-                  <label for="lastwater" class="col-form-label">Last watering: </label>
+                  <label for="lastwater" class="col-form-label">Last watering:  </label>
                 </div>
               <div class="col">
                 <input 
@@ -235,7 +244,7 @@ function handleSubmit(event) {
 
               <div class="row justify-content-around my-2 py-2 mx-1">
                 <div class="col">
-                  <label for="poting" class="col-form-label">Repotting: </label>
+                  <label for="poting" class="col-form-label">Repotting:  </label>
                 </div>
               <div class="col">
                 <input 
@@ -248,7 +257,7 @@ function handleSubmit(event) {
                 />
               </div >
               <div class="col">
-                  <label for="lastpot" class="col-form-label">Last repotting: </label>
+                  <label for="lastpot" class="col-form-label">Last repotting:  </label>
                 </div>
               <div class="col">
                 <input 
@@ -265,7 +274,7 @@ function handleSubmit(event) {
 
               <div class="row justify-content-around my-2 py-2 mx-1">
                 <div class="col">
-                  <label for="spark" class="col-form-label">Spraying: </label>
+                  <label for="spark" class="col-form-label">Spraying:</label>
                 </div>
               <div class="col">
                 <input 
@@ -325,7 +334,7 @@ function handleSubmit(event) {
 
               <div class="row justify-content-around my-2 py-2 mx-1">
                 <div class="col">
-                  <label for="clean" class="col-form-label">Cleaning: </label>
+                  <label for="clean" class="col-form-label">Cleaning:</label>
                 </div>
               <div class="col">
                 <input 
@@ -426,11 +435,11 @@ function handleSubmit(event) {
             </select>
             </div>
             </div>
-            <button>Add</button>
+            <button>Change</button>
               </form>
             </div>
             </section>
   );
 }
 
-export default Form;
+export default MakeChange;

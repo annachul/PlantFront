@@ -11,32 +11,37 @@ function Navigation() {
             <ul class="mx-0.5">
               <li className="nav-item">
                 <NavLink to="/tasks">
-                ✅   Задачи
+                ✅   Tasks
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink to="/list">
-                🪴  Список растений
+                🪴  Plant list
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink to="/wishlist">
-                🎉  Вишлист растений
+                🎉  Plant Wishlist
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink to="/dead">
-                🪦  Кладбище растений
+                🪦  Graveyard
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink to="/form">
-                🏡  Внести растение
+                🏡  Add plant
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink to="/space">
-                👁️  Расстановка
+                👁️  Space
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/makechange">
+                🖌️  Change plant
                 </NavLink>
               </li>
             </ul>

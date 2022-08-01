@@ -11,7 +11,7 @@ function Wishlist(props) {
   
   return (
     <section>
-      <h1 className="headerforpage">🎉  Вишлист растений</h1>
+      <h1 className="headerforpage">🎉  Plant wishlist</h1>
       <div>
       {onePlant}
       </div>

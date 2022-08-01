@@ -6,8 +6,8 @@ export default function Wishcard(props) {
     status:"list"})
 
     function handledelete(event){
-        alert("Расстение удалено!!");
-        fetch('http://127.0.0.1:8000/delete/', {
+        alert("You have deleted a plant!!");
+        fetch('http://127.0.0.1:8000/api/plants/'+props.plant.id, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,10 +25,9 @@ export default function Wishcard(props) {
             status: "list"})
 
         )
-        alert("Расстение в Списке Растений!");
-        console.log(statusstate)
-        fetch('http://127.0.0.1:8000/poststatus/', {
-        method: 'POST',
+        alert("Congrats!!");
+        fetch('http://127.0.0.1:8000/api/plants/'+props.plant.id, {
+        method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -57,52 +56,52 @@ export default function Wishcard(props) {
             <div class="col-7">
             <div class="row">
             <div class="col-5">
-                <span>Уровень света: </span>
+                <span>Light level:  </span>
                 <span>{props.plant.ligth}</span>
             </div>
             <div class="col-5">
-                <span>Уровень сложности: </span>
+                <span>Difficulty level: </span>
                 <span>{props.plant.hard}</span>
             </div> 
             </div>
             <div class="row">
             <div class="col-5">
-                <span>Полив в летнее время: </span>
+                <span>Watering in summer time: </span>
                 <span>{props.plant.watersum}</span>
             </div>   
 
             <div class="col-6">
-                <span>Удобрение в летнее время: </span>
+                <span>Food in summer time: </span>
                 <span>{props.plant.feedsum}</span>
             </div>   
             </div>
 
             <div class="row">
             <div class="col-5">
-                <span>Полив в зимнее время: </span>
+                <span>Watering in winter time: </span>
                 <span>{props.plant.waterwin}</span>
             </div>   
 
             <div class="col-6">
-                <span>Удобрение в зимнее время: </span>
+                <span>Food in winter time: </span>
                 <span>{props.plant.feedwin}</span>
             </div>   
             </div>
 
             <div class="row">
-            {props.plant.warm && <span>✅ Теплый душ</span>}
-            {props.plant.clean && <span>✅ Протирка листьев</span>}
-            {props.plant.spark && <span>✅ Опрыскивание</span>}
+            {props.plant.warm && <span>✅ Warm bath</span>}
+            {props.plant.clean && <span>✅ Cleaning</span>}
+            {props.plant.spark && <span>✅ Spraying</span>}
             </div>    
             </div>
             </div>
             <div>
-            <span>Почва: </span> 
+            <span>Soil: </span> 
             <span>{props.plant.soil} </span> 
             </div>
             
             <div>
-            {props.plant.add && <span>Примечание: {props.plant.add}</span>}
+            {props.plant.add && <span>Comment: {props.plant.add}</span>}
             </div>
 
         </div>
